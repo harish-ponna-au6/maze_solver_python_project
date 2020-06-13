@@ -4,30 +4,30 @@ import sys
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', default='input.txt', type=str, help='This command is used to provide input file, input.txt by default.')
-    parser.add_argument('-o', default='output.txt', type=str, help='This command is used to provide output file, output.txt by default.')
-    parser.add_argument('-d', default=[-1,-1], type=list, help='This command is used to give manual destination, [N][N] by default.')
+    parser.add_argument('-i', default='input.txt', type=str,
+                        help='This command is used to provide input file, input.txt by default.')
+    parser.add_argument('-o', default='output.txt', type=str,
+                        help='This command is used to provide output file, output.txt by default.')
+    parser.add_argument('-d', default=0, type=str,
+                        help='This command is used to give manual destination a, b by default.')
     args = parser.parse_args()
-    sys.stdout.write(str(solve_maze(args)))
+    sys.stdout.write(str(solveMaze(args)))
 
 
-N = 0
-def print_solution(sol):
-    for i in sol:
-        for j in i:
-            print(str(j) + " ", end="")
-        print("")
+m = 0
+n = 0
+D = [0, 0]
 
 
-def is_safe(maze, x, y):
+def isSafe(maze, x, y):
 
-    if x >= 0 and x < N and y >= 0 and y < N and maze[x][y] == 1:
+    if x >= 0 and x < m and y >= 0 and y < n and maze[x][y] == 1:
         return True
 
     return False
 
 
-def solve_maze(args):
+def solveMaze(args):
     output_file = args.o
     ofile = open(output_file, 'w')
     ofile.write("")
@@ -36,14 +36,24 @@ def solve_maze(args):
     lines = ifile.readlines()
     maze = []
     for i in lines:
-        maze.append(list(map(int, i.split(' '))))
-    global N
+        maze.append(list(map(int, i.strip().split(' '))))
 
-    N = len(maze)
+    dest = args.d
+    global m
+    global n
+    global D
+    m = len(maze)
+    n = len(maze[0])
+    if dest == 0:
+        D = [m-1, n-1]
+    else:
+        dest = dest.split(',')
+        D = [int(dest[0]), int(dest[1])]
+
     ifile.close()
-    sol = [[0 for j in range(len(maze))] for i in range(len(maze))]
+    sol = [[0 for j in range(n)] for i in range(m)]
 
-    if solve_maze_util(maze, 0, 0, sol) == False:
+    if solveMazeUtil(maze, 0, 0, sol) == False:
         output_file = args.o
         ofile = open(output_file, 'w')
         ofile.write('-1')
@@ -62,17 +72,17 @@ def solve_maze(args):
     return True
 
 
-def solve_maze_util(maze, x, y, sol):
+def solveMazeUtil(maze, x, y, sol):
 
-    if x == N - 1 and y == N - 1 and maze[x][y] == 1:
+    if x == D[0] and y == D[1] and maze[x][y] == 1:
         sol[x][y] = 1
         return True
 
-    if is_safe(maze, x, y) == True:
+    if isSafe(maze, x, y) == True:
         sol[x][y] = 1
-        if solve_maze_util(maze, x + 1, y, sol) == True:
+        if solveMazeUtil(maze, x + 1, y, sol) == True:
             return True
-        if solve_maze_util(maze, x, y + 1, sol) == True:
+        if solveMazeUtil(maze, x, y + 1, sol) == True:
             return True
         sol[x][y] = 0
         return False
