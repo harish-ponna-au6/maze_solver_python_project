@@ -37,12 +37,16 @@ def solveMaze(args):
     maze = []
     for i in lines:
         maze.append(list(map(int, i.strip().split(' '))))
-
+    for i in range(1, len(maze)):
+        if(len(maze[0]) != len(maze[i])):
+            return 'Given input file has no matrix'
     dest = args.d
     global m
     global n
     global D
     m = len(maze)
+    if m == 0:
+        return 'Given input file has no matrix'
     n = len(maze[0])
     if dest == 0:
         D = [m-1, n-1]
