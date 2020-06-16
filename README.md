@@ -1,8 +1,9 @@
 # AttainU Python Project
 
 ## Project Name : Maze Solver 
+## Instructor : Mr. Priyesh
 ## Created By : Harish Ponna
-## Mentor : Fariya Bhanu
+## Mentor : Miss Fariya Bhanu
 
 
 
