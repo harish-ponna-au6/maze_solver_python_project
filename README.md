@@ -2,21 +2,15 @@
 
 ## Project Name : Maze Solver 
 ## Created By : Harish Ponna
+## Mentor : Fariya Bhanu
 
 
-## Maze Solver
 
 ```
-This program will take input mxn matrix of 0s and 1s(0 denoting walls and 1 denoting path) and give a matrix of same mxn size in output file. 1s will show the shortest path between the start and the destination, and 0s will be the blocked path.
-```
+Maze Solver
 
-**Read me file content:**
--  Files inside mazesolver.
-- How to run MazeSolver In Windows Operating System.
-- Approach to solve the problem.
-- Code Explanation.
-- Modules used.
-- Conclusion.
+This program will take input m x n matrix of 0s and 1s where 0 denoting walls and 1 denoting path and will give a matrix of same m x n size in output file where 1s will show the shortest path between the start and the destination, and 0s will be the blocked path.
+```
 
 ## Files inside mazesolver.
 
@@ -29,6 +23,7 @@ Github mazesolver folder consists of 4 contents.
 3. input.txt
 
 3. output.txt
+
 
 ### README.md 
 It consists of user manual with contents, instructions and information about the project mazesolver.
@@ -46,7 +41,7 @@ This file will be the output file in which the maze_solver.py will save the outp
 
 Open the input.txt file and type the desired input in provided format and then save it and close.
 
-`Format for typing the input condition.`
+`Instructions for making the input file.`
 
 Input should be string of space separated integers, numbers of integers denote n of the matrix and number of lines denote m of the matrix.
 Space between each integer is a must.
@@ -76,7 +71,7 @@ This program has 1 command with 3 arguments(1 optional).
 
 ## Approach to solve the problem.
 
-Backtracking method is used in order to find the smallest path in less time. BFS algo time complexity is higher for the shortest path, hence backtracking method is perfect for this scenario. 
+Backtracking method is used in order to find the smallest path in less time. BFS algo time complexity is higher for the shortest path. 
 
 ### Code Explanation
 
@@ -87,9 +82,9 @@ as arguments in the function solvemaze().
 
 **solveMaze() function**
 
-First of, input and output files are opened and stored in the variables, then a sol[] is defined to store the solution(this matrix will 
+First, the input and output files are opened and stored in the variables, then a sol[] is defined to store the solution(this matrix will 
 get modified according to the solution in further functions). After that the next function solveMazeUtil() is called to update the sol[]
-and get the result. In the end of this function we wrtie the output file with sol[] and close the files.
+and get the result. In the end of this function we write the output file with sol[] and close the files.
 
 **solveMazeUtil() function**
 
@@ -106,8 +101,5 @@ In creation of this python program, following module(s) is/are used:
 
 `argparse` - To get user input in command line
 
-## Conclusion
-
-The project is a bit simpler, so i decided to optimize it further in future.I was thinking of making it bi-directional path finder, by doing the same thing from the destiantion side in reverse order simultaneously, which will result in even more reduced time.
 
 `---THANK YOU---`

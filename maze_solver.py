@@ -5,11 +5,11 @@ import sys
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', default='input.txt', type=str,
-                        help='This command is used to provide input file, input.txt by default.')
+                        help='To provide input file, input.txt by default.')
     parser.add_argument('-o', default='output.txt', type=str,
-                        help='This command is used to provide output file, output.txt by default.')
+                        help='To provide output file, output.txt by default.')
     parser.add_argument('-d', default=0, type=str,
-                        help='This command is used to give manual destination a, b by default.')
+                        help='To give manual destination a,b by default.')
     args = parser.parse_args()
     sys.stdout.write(str(solveMaze(args)))
 
@@ -19,14 +19,14 @@ n = 0
 D = [0, 0]
 
 
+# to check the validity of next move
 def isSafe(maze, x, y):
-
     if x >= 0 and x < m and y >= 0 and y < n and maze[x][y] == 1:
         return True
-
     return False
 
 
+# To store the input,output and destination in variables
 def solveMaze(args):
     output_file = args.o
     ofile = open(output_file, 'w')
@@ -53,7 +53,7 @@ def solveMaze(args):
     ifile.close()
     sol = [[0 for j in range(n)] for i in range(m)]
 
-    if solveMazeUtil(maze, 0, 0, sol) == False:
+    if not solveMazeUtil(maze, 0, 0, sol):
         output_file = args.o
         ofile = open(output_file, 'w')
         ofile.write('-1')
@@ -68,25 +68,26 @@ def solveMaze(args):
         b.append('\n')
         ofile.write(' '.join(b))
     ofile.close()
-
     return True
 
 
+#  to find shortest path with the help of a smaller function isSafe()
 def solveMazeUtil(maze, x, y, sol):
 
     if x == D[0] and y == D[1] and maze[x][y] == 1:
         sol[x][y] = 1
         return True
 
-    if isSafe(maze, x, y) == True:
+    if isSafe(maze, x, y):
         sol[x][y] = 1
-        if solveMazeUtil(maze, x + 1, y, sol) == True:
+        if solveMazeUtil(maze, x + 1, y, sol):
             return True
-        if solveMazeUtil(maze, x, y + 1, sol) == True:
+        if solveMazeUtil(maze, x, y + 1, sol):
             return True
         sol[x][y] = 0
         return False
 
 
+# This is the main function to execute the script
 if __name__ == "__main__":
     main()
