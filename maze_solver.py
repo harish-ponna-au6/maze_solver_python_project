@@ -19,13 +19,6 @@ n = 0
 D = [0, 0]
 
 
-# to check the validity of next move
-def isSafe(maze, x, y):
-    if x >= 0 and x < m and y >= 0 and y < n and maze[x][y] == 1:
-        return True
-    return False
-
-
 # To store the input,output and destination in variables
 def solveMaze(args):
     output_file = args.o
@@ -77,7 +70,6 @@ def solveMaze(args):
 
 #  to find shortest path with the help of a smaller function isSafe()
 def solveMazeUtil(maze, x, y, sol):
-
     if x == D[0] and y == D[1] and maze[x][y] == 1:
         sol[x][y] = 1
         return True
@@ -92,6 +84,13 @@ def solveMazeUtil(maze, x, y, sol):
         return False
 
 
-# This is the main function to execute the script
+# to check the validity of next move
+def isSafe(maze, x, y):
+    if x >= 0 and x < m and y >= 0 and y < n and maze[x][y] == 1:
+        return True
+    return False
+
+
+# This is the main function to execute the script (Backtracking)
 if __name__ == "__main__":
     main()

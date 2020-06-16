@@ -6,9 +6,8 @@
 
 
 
-```
 Maze Solver
-
+```
 This program will take input m x n matrix of 0s and 1s where 0 denoting walls and 1 denoting path and will give a matrix of same m x n size in output file where 1s will show the shortest path between the start and the destination, and 0s will be the blocked path.
 ```
 
