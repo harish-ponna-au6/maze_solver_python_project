@@ -62,7 +62,7 @@ This program has 1 command with 3 arguments(1 optional).
     Use this argument to provide the output file which will contain the output produced by mazesolver.py. By default there exist an 
     output.txt file, if you want output in your own output file then give the name of your outputfile after --o.
 
-3. -d 5,5 (Optional)
+3. -d a,b (Optional)
     This argument is optional and will take the value of the provided matrix size in the inputfile by default. This defines
     the destination in the maze. If you want to give your own destiantion type 2 integers separated by a comma(the coordinates of
     your destination) after --d. In this example 4,5 means destination is at [4,5] of the matrix with 0 indexing.Don't use any spaces in between integers, only comma and integers allowed.
