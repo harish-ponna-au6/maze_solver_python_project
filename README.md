@@ -49,7 +49,7 @@ After you are finished with the typing your input, save the file and close it. N
 
 ## Command line
 
-This program has 1 command with 3 arguments(1 optional).
+This program has 1 command with 3 arguments.
 
 - python mazesolver.py -i inputfile.txt -o outputfile.txt -d 5,5
 
@@ -73,23 +73,23 @@ Backtracking method is used in order to find the smallest path in less time. BFS
 
 ### Code Explanation
 
-**main() function--**
+**initialization() function--**
 
 This is the main function which initialises the input and output conditions by asking the user from command prompt and then pass them 
-as arguments in the function solvemaze().
+as arguments in the function solve_maze().
 
-**solveMaze() function**
+**solve_maze() function**
 
 First, the input and output files are opened and stored in the variables, then a sol[] is defined to store the solution(this matrix will 
-get modified according to the solution in further functions). After that the next function solveMazeUtil() is called to update the sol[]
+get modified according to the solution in further functions). After that the next function solve_maze_util() is called to update the sol[]
 and get the result. In the end of this function we write the output file with sol[] and close the files.
 
-**solveMazeUtil() function**
+**solve_maze_util() function**
 
 This is the main fucntion which checks and finds the shortest path with the help of a smaller function isSafe() which checks whether the next move is valid or not. And this function updates the sol [ ] recursively accordingly and returns it by assigning the values in it as the 
 shortest path.
 
-**isSafe() function**
+**is_safe() function**
 
 This function is used to check the validity of next move. Returns true if next move exists else returns false.
 

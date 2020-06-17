@@ -72,16 +72,17 @@ def solve_maze(args):
         b.append('\n')
         ofile.write(' '.join(b))
     ofile.close()
+    print("Solution exist for the maze")
     return True
 
 
-#  to find shortest path with the help of a smaller function isSafe()
+#  to find shortest path with the help of a smaller function is_safe()
 def solve_maze_util(maze, x, y, sol):
     if x == D[0] and y == D[1] and maze[x][y] == 1:
         sol[x][y] = 1
         return True
 
-    if isSafe(maze, x, y):
+    if is_safe(maze, x, y):
         sol[x][y] = 1
         if solve_maze_util(maze, x + 1, y, sol):
             return True
@@ -92,7 +93,7 @@ def solve_maze_util(maze, x, y, sol):
 
 
 # to check the validity of next move
-def isSafe(maze, x, y):
+def is_safe(maze, x, y):
     if x >= 0 and x < m and y >= 0 and y < n and maze[x][y] == 1:
         return True
     return False
