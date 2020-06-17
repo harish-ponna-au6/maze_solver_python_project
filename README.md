@@ -1,9 +1,9 @@
 # AttainU Python Project
 
-## Project Name : Maze Solver 
-## Instructor : Mr. Priyesh
-## Created By : Harish Ponna
-## Mentor : Miss Fariya Bhanu
+### Project Name : Maze Solver 
+### Instructor : Mr. Priyesh
+### Created By : Harish Ponna
+### Mentor : Miss Fariya Bhanu
 
 
 
@@ -35,7 +35,7 @@ This is an input file which will be used to provide the default condition of the
 ### output.txt
 This file will be the output file in which the maze_solver.py will save the output of the result from given input from input file.
 
-## How to run MazeSolver In Windows OS.
+## How to run MazeSolver
 
 Open the input.txt file and type the desired input in provided format and then save it and close.
 
